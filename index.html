@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@200;300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        font-family: "Roboto Condensed", sans-serif;
+      }
+      .projects {
+        width: 100%;
+        height: 100vh;
+        margin: 0 auto;
+      }
+      .cards {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        padding: 50px;
+      }
+      .card {
+        width: 33%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        border-image: linear-gradient(rgb(0, 255, 242), rgb(0, 79, 128)) 30;
+        border-width: 4px;
+        border-style: solid;
+        background: #f4f4f4;
+        padding: 20px;
+      }
+      .header {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .process {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .plus {
+        background-color: rgb(73, 74, 93);
+        border-radius: 50%;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        cursor: pointer;
+      }
+      .taskCardList {
+        border-radius: 5px;
+        padding: 10px;
+      }
+      .taskItem {
+        margin: 8px 0;
+        background-color: #fff;
+        border-radius: 5px;
+        font-size: 17px;
+        font-weight: 300;
+        list-style-type: none;
+        padding: 5px 3px;
+      }
+ 
+      .addCardInput{
+        padding: 8px 8px 30px 8px;
+        border-radius: 5px;
+        border: none;
+        width: 100%;
+        outline: none;
+        margin: 10px 0;
+        font-size: 15px;
+        font-weight: 300;
+      }
+      .addCardBtn, .closeBtn{
+        outline: none;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+        padding: 7px 10px;
+        background-color: rgb(0, 79, 128);
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <aside class="addProject">
+        <div class="header">Task Management</div>
+        <button class="addProjectBtn">
+            <i class="fa-solid fa-plus"></i>
+            Add a Project
+        </button>
+    </aside> -->
+    <main class="projects">
+      <div class="cards">
+        <!-- <div class="card">
+                <head>
+                    <i class="fa-solid fa-lightbulb"></i>
+                    <h3>Backlog</h3>
+                </head>
+                <i class="fa-solid fa-plus"></i>
+            </div> -->
+        <div class="card">
+          <div class="header">
+            <div class="process">
+              <i class="fa-solid fa-bars"></i>
+              <h3>To Do</h3>
+            </div>
+            <i class="fa-solid fa-plus plus" onclick="addNewCard()"></i>
+          </div>
+          <ul class="taskCardList">
+            <li class="taskItem">Lorem ipsum dolor sit amet.</li>
+            <li class="taskItem">Lorem ipsum dolor sit amet.</li>
+          </ul>
+           <div class="addCard">
+            <!-- <form id="addCardForm">
+              <input type="text" class="addCardInput" placeholder="Bu kart için başlık girin..." />
+            </form>
+            <div class="buttons">
+                <button class="addCardBtn" onclick="addTaskToTaskList()">Kart Ekle</button>
+                <button class="closeBtn" onclick="closeAddBtn()">X</button>
+            </div> -->
+          </div> 
+        </div>
+        <div class="card">
+          <div class="header">
+            <div class="process">
+              <i class="fa-solid fa-spinner"></i>
+              <h3>Doing</h3>
+            </div>
+            <i class="fa-solid fa-plus plus" onclick="addNewCard()"></i>
+          </div>
+        </div>
+        <div class="card">
+          <div class="header">
+            <div class="process">
+              <i class="fa-solid fa-check"></i>
+              <h3>Done</h3>
+            </div>
+            <i class="fa-solid fa-plus plus" onclick="addNewCard()"></i>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
