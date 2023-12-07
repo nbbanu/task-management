@@ -68,7 +68,7 @@
       }
       .taskCardList {
         border-radius: 5px;
-        padding: 10px;
+        padding: 10px 0;
       }
       .taskItem {
         margin: 8px 0;
@@ -77,10 +77,10 @@
         font-size: 17px;
         font-weight: 300;
         list-style-type: none;
-        padding: 5px 3px;
+        padding: 5px;
       }
- 
-      .addCardInput{
+
+      .addCardInput {
         padding: 8px 8px 30px 8px;
         border-radius: 5px;
         border: none;
@@ -90,7 +90,8 @@
         font-size: 15px;
         font-weight: 300;
       }
-      .addCardBtn, .closeBtn{
+      .addCardBtn,
+      .closeBtn {
         outline: none;
         cursor: pointer;
         border: none;
@@ -102,43 +103,30 @@
     </style>
   </head>
   <body>
-    <!-- <aside class="addProject">
-        <div class="header">Task Management</div>
-        <button class="addProjectBtn">
-            <i class="fa-solid fa-plus"></i>
-            Add a Project
-        </button>
-    </aside> -->
     <main class="projects">
       <div class="cards">
-        <!-- <div class="card">
-                <head>
-                    <i class="fa-solid fa-lightbulb"></i>
-                    <h3>Backlog</h3>
-                </head>
-                <i class="fa-solid fa-plus"></i>
-            </div> -->
         <div class="card">
           <div class="header">
             <div class="process">
               <i class="fa-solid fa-bars"></i>
               <h3>To Do</h3>
             </div>
-            <i class="fa-solid fa-plus plus" onclick="addNewCard()"></i>
+            <i class="fa-solid fa-plus plus"></i>
           </div>
-          <ul class="taskCardList">
-            <li class="taskItem">Lorem ipsum dolor sit amet.</li>
-            <li class="taskItem">Lorem ipsum dolor sit amet.</li>
+          <ul class="taskCardList" id="doTaskList">
+            <!-- js ile dinamik eklenecek
+            <li class="taskItem">Lorem ipsum dolor sit amet.</li> -->
           </ul>
-           <div class="addCard">
-            <!-- <form id="addCardForm">
+          <div class="addCard">
+            <!-- js ile dinamik eklenecek  
+             <form id="addCardForm">
               <input type="text" class="addCardInput" placeholder="Bu kart için başlık girin..." />
             </form>
             <div class="buttons">
                 <button class="addCardBtn" onclick="addTaskToTaskList()">Kart Ekle</button>
                 <button class="closeBtn" onclick="closeAddBtn()">X</button>
             </div> -->
-          </div> 
+          </div>
         </div>
         <div class="card">
           <div class="header">
@@ -146,18 +134,46 @@
               <i class="fa-solid fa-spinner"></i>
               <h3>Doing</h3>
             </div>
-            <i class="fa-solid fa-plus plus" onclick="addNewCard()"></i>
+            <i class="fa-solid fa-plus plus"></i>
+          </div>
+          <ul class="taskCardList" id="doingTaskList">
+            <!-- js ile dinamik eklenecek
+            <li class="taskItem">Lorem ipsum dolor sit amet.</li> -->
+          </ul>
+          <div class="addCard">
+            <!-- js ile dinamik eklenecek  
+             <form id="addCardForm">
+              <input type="text" class="addCardInput" placeholder="Bu kart için başlık girin..." />
+            </form>
+            <div class="buttons">
+                <button class="addCardBtn" onclick="addTaskToTaskList()">Kart Ekle</button>
+                <button class="closeBtn" onclick="closeAddBtn()">X</button>
+            </div> -->
           </div>
         </div>
         <div class="card">
-          <div class="header">
-            <div class="process">
-              <i class="fa-solid fa-check"></i>
-              <h3>Done</h3>
+            <div class="header">
+              <div class="process">
+                <i class="fa-solid fa-check"></i>
+                <h3>Done</h3>
+              </div>
+              <i class="fa-solid fa-plus plus"></i>
             </div>
-            <i class="fa-solid fa-plus plus" onclick="addNewCard()"></i>
+            <ul class="taskCardList" id="doneTaskList">
+              <!-- js ile dinamik eklenecek
+              <li class="taskItem">Lorem ipsum dolor sit amet.</li> -->
+            </ul>
+            <div class="addCard">
+              <!-- js ile dinamik eklenecek  
+               <form id="addCardForm">
+                <input type="text" class="addCardInput" placeholder="Bu kart için başlık girin..." />
+              </form>
+              <div class="buttons">
+                  <button class="addCardBtn" onclick="addTaskToTaskList()">Kart Ekle</button>
+                  <button class="closeBtn" onclick="closeAddBtn()">X</button>
+              </div> -->
+            </div>
           </div>
-        </div>
       </div>
     </main>
 
