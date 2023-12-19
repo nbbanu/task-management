@@ -7,6 +7,11 @@ const doneTaskList = document.querySelector("#doneTaskList");
 let todos = [];
 let doings = [];
 let dones = [];
+let id = new Date().getTime();
+ 
+// let dragStartTodoIndex;
+// let dragStartDoingIndex;
+// let dragStartDoneIndex;
 
 document.addEventListener("DOMContentLoaded", loadAllTasksToUI);
 
@@ -56,7 +61,6 @@ function submitTask(e, index) {
   e.preventDefault();
 
   const addCardInput = document.querySelector("#add_input_" + index);
-
   if (addCardInput.value !== "") {
     const value = addCardInput.value;
     if (index == 0) {
@@ -77,32 +81,55 @@ function submitTask(e, index) {
 }
 
 function addNewTaskToList(index) {
+
   if (index == 0) {
     todoTaskList.innerHTML = "";
-    todos?.map((todo) => {
+
+    todos?.map((todo, index) => {
       todoTaskList.innerHTML += `
-        <li class="taskItem" draggable="true">${todo}
-        <i class="fa-solid fa-minus"></i>
+        <li class="taskItem"
+        id=${id}
+        draggable="true"
+        ondragstart="onItemDragStart(event,${index})"
+        ondragenter="onItemDragEnter()"
+        ondragend="onItemDragEnd(event)"
+        ondrop="onItemDragDrop(event,${index})"
+        >${todo}
+        <i class="fa-solid fa-minus" onclick="deleteTasks(${id})"></i>
         </li>
         `;
     });
   } else if (index == 1) {
     doingTaskList.innerHTML = "";
 
-    doings?.map((todo) => {
+    doings?.map((doing, index) => {
       doingTaskList.innerHTML += `
-        <li class="taskItem" draggable="true">${todo}
-        <i class="fa-solid fa-minus"></i>
+        <li class="taskItem"
+        id=${id}
+        draggable="true"
+        ondragstart="onItemDragStart(event,${index})" 
+        ondragenter="onItemDragEnter()"
+        ondragend="onItemDragEnd(event)"
+        ondrop="onItemDragDrop(event,${index})"
+        >${doing}
+        <i class="fa-solid fa-minus" onclick="deleteTasks(${id})"></i>
         </li>
         `;
     });
   } else {
     doneTaskList.innerHTML = "";
 
-    dones?.map((todo) => {
+    dones?.map((done, index) => {
       doneTaskList.innerHTML += `
-        <li class="taskItem" draggable="true">${todo}
-        <i class="fa-solid fa-minus"></i>
+        <li class="taskItem" 
+        id="${id}"
+        draggable="true"
+        ondragstart="onItemDragStart(event,${index})" 
+        ondragenter="onItemDragEnter()"
+        ondragend="onItemDragEnd(event)"
+        ondrop="onItemDragDrop(event,${index})"
+        >${done}
+        <i class="fa-solid fa-minus" onclick="deleteTasks(${id})"></i>
         </li>
         `;
     });
@@ -117,23 +144,33 @@ function addTasksToLocalStoroge() {
 }
 
 function getTasksFromLocalStorage() {
-
-  if(!localStorage.getItem("todos")){
+  if (!localStorage.getItem("todos")) {
     todos = [];
-  }else{
+  } else {
     todos = JSON.parse(localStorage.getItem("todos"));
   }
-  if(!localStorage.getItem("doings")){
+  if (!localStorage.getItem("doings")) {
     doings = [];
-  }else{
+  } else {
     doings = JSON.parse(localStorage.getItem("doings"));
   }
-  if(!localStorage.getItem("dones")){
+  if (!localStorage.getItem("dones")) {
     dones = [];
-  }else{
+  } else {
     dones = JSON.parse(localStorage.getItem("dones"));
   }
 
-
   return { todos, doings, dones };
 }
+
+function deleteTasks(id) {
+  console.log(id);
+  // todos = todos.filter(todo =>todo.id !== id);
+  // addNewTaskToList(0);
+  // dones = dones.filter(done => done.id !== id);
+  // addNewTaskToList(1);
+  // doings = doings.filter(doing => doing.id !== id);
+  // addNewTaskToList(2);
+}
+
+
