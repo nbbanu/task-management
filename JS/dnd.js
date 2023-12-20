@@ -27,4 +27,3 @@ cards.forEach((card) => {
   
   });
 });
-
